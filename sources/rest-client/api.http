@@ -1,0 +1,62 @@
+# ini menyatakan bahwa kita akan melakukan request POST ke endpoint /testing
+POST http://localhost:3000/testing HTTP/1.1
+# Ini menyatakan bahwa kita akan menggunakan multipart/form-data.
+# Pada multipart/form-data, kita juga membutuhkan sebuah informasi tambahan
+#   dengan nama "boundary" yang akan ditentukan secara random.
+# Pada saat menggunakan REST Client, boundary ini valuenya boleh ditulis
+#   secara manual
+# Pada penulisan ini, boundary yang digunakan memiliki value
+#   ----WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+# Ini adalah bagian pertama dari multipart/form-data
+# Cara penulisannya adalah dengan menambahkan double dash (--) diikuti dengan
+# value boundary yang telah ditentukan
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+# Ini adalah konten pertama dari multipart/form-data
+# Konten ini memiliki header Content-Disposition dengan value
+#  form-data; (untuk menyatakan bahwa konten ini merupakan bagian dari form-data)
+#  name="user" (merupakan nama dari form-data punya key, yaitu user)
+Content-Disposition: form-data; name="user"
+
+# Ini adalah value dari konten yang telah ditentukan
+# dengan kata lain, konten pertama ini memiliki 
+# name="user" dan value="testing@mail.com"
+testing@mail.com
+# Ini adalah konten kedua dari multipart/form-data
+# Konten ini memiliki header Content-Disposition dengan value
+#  form-data; (untuk menyatakan bahwa konten ini merupakan bagian dari form-data)
+#  name="password" (merupakan nama dari form-data punya key, yaitu password)
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="password"
+
+# Ini adalah value dari konten yang telah ditentukan
+# dengan kata lain, konten kedua ini memiliki
+# name="password" dan value="testing"
+testing
+# Ini adalah konten ketiga dari multipart/form-data
+# Konten ini memiliki header Content-Disposition dengan value
+#  form-data; (untuk menyatakan bahwa konten ini merupakan bagian dari form-data)
+#  name="avatarImage" (merupakan nama dari form-data punya key, yaitu avatarImage)
+#  filename="1.jpg" (merupakan nama file yang akan diupload)
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="avatarImage"; filename="1.jpg"
+# Pada saat mengupload file image
+# akan diminta untuk menentukan content type dari file yang akan diupload
+# karena yang dikirimkan adalah file dengan ekstensi .jpg
+# maka content typenya adalah image/jpeg
+Content-Type: image/jpeg
+
+# Pada bagian ini, kita akan mengirimkan file image yang ada di client
+< ./1.jpg
+# Pada bagian ini, kita menuliskan bagian penutup dari FormData
+# yaitu dengan menuliskan double dash (--) dan value boundary yang telah ditentukan
+# diikuti dengan penutup berupa double dash (--) lagi
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+###
+
+POST http://localhost:3000/testing HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+
+user=testing@mail.com&password=testing

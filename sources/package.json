@@ -1,0 +1,20 @@
+{
+  "name": "sources",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "fastify": "^3.20.2",
+    "fastify-formbody": "^5.1.0",
+    "fastify-multer": "^2.0.2",
+    "fastify-multipart": "^4.0.7",
+    "form-data": "^4.0.0"
+  },
+  "type": "module"
+}
