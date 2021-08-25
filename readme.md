@@ -400,6 +400,15 @@ Langkah dalam membuatnya adalah sebagai berikut
 Selamat ! sampai pada tahap ini artinya kita sudah mempelajari bagaimana cara untuk  
 mengirimkan dan menerima FormData baik pada Client maupun Server.
 
+PS:
+Bagi pengguna express, sudah diberikan juga yah comment comment di atas, namun  
+secara sederhananya langkah yang harus dilakukan adalah:
+- Tidak perlu menggunakan type module
+- Mengganti semua import dengan require
+- Mengganti middleware yang khusus untuk fastify menjadi khusus untuk express
+- Menggunnakan kode yang disesuaikan dengan express, khususnya pada bagian  
+  penulisan endpoint yang ada.
+
 ## References
 - https://www.w3schools.com/tags/att_form_enctype.asp
 - https://www.w3.org/TR/html401/interact/forms.html#h-17.13.4
